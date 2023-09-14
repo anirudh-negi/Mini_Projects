@@ -9,18 +9,18 @@ bool is_leap_year(int year) {
     return (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
 }
 
-void add_days_to_date(int* mm, int* dd, int* yy, int days_left_to_add) {
+void add_days_to_date(int* dd, int* mm, int* yy, int days_left_to_add) {
     int days_in_month[] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
-        
+
         if (*mm == 2 && is_leap_year(*yy)) {
             days_in_month[*mm] += 1;
-        } 
+        }
         if(*dd > days_in_month[*mm] ){
             printf("ENTER VALID NUMBER OF DAYS IN RESPECTIVE MONTH/n");
             return;
         }
     while (days_left_to_add > 0) {
-    
+
 
         int days_left_in_month= days_in_month[*mm] - *dd;
 
@@ -43,14 +43,14 @@ void add_days_to_date(int* mm, int* dd, int* yy, int days_left_to_add) {
 
 int main() {
     int dd, mm, yy, days_left_to_add;
-    printf("Please enter a date between the years 1800 and 10000 in the format mm dd yy and provide the number of days to add to this date:\n");
-    scanf("%d %d %d %d", &mm, &dd, &yy, &days_left_to_add);
+    printf("Please enter a date between the years 1800 and 10000 in the format dd mm yy and provide the number of days to add to this date:\n");
+    scanf("%d %d %d %d", &dd, &mm, &yy, &days_left_to_add);
 
     if (mm < 1 || mm > 12 || dd < 1 || dd > 31 || yy < 1800 || yy > 10000) {
         printf("Invalid input. Please enter a valid date and year between 1800 and 10000.\n");
     } else {
-        add_days_to_date(&mm, &dd, &yy, days_left_to_add);
-        printf("%d %d %d\n", mm, dd, yy);
+        add_days_to_date(&dd, &mm, &yy, days_left_to_add);
+        printf("%d %d %d\n", dd, mm, yy);
     }
 
     return 0;
