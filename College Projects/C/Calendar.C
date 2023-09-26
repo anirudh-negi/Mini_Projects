@@ -60,11 +60,12 @@ int main()
    scanf("%d",&month);
    if(!(month>=1 && month<=12)){
     printf("ENTER MONTH BW 1 TO 12!\n");
-   } 
+   }
    }while(!(month>=1 && month<=12));
    print_year(year,month);
-   scanf(" %c",&c);
    do{
+    printf("\nENTER:\nA FOR PREV MONTH\nD FOR NEXT MONTH\nS FOR PREV YEAR\nW FOR NEXT YEAR\nI FOR NEW YEAR AND MONTH\n0 TO EXIT\n");
+    scanf(" %c",&c);
     if(c=='a' || c=='A'){
         month--;
         if(month==0){
@@ -72,7 +73,7 @@ int main()
             month=12;
         }
         print_year(year,month);
-        
+
     } else if(c=='d' || c=='D'){
         month++;
         if(month==13){
@@ -80,12 +81,12 @@ int main()
             year++;
         }
         print_year(year,month);
-        
+
     } else if(c=='w' || c=='W'){
         year++;
         print_year(year,month);
-    
-    } else if(c=='s' || 'S'){
+
+    } else if(c=='s' || c=='S'){
         year--;
         print_year(year,month);
 
@@ -95,9 +96,9 @@ int main()
         printf("\nEnter month number(1-12): ");
         scanf("%d",&month);
         print_year(year,month);
+    } else{
+        printf("ENTER VALID CHOICE!\n");
     }
-    scanf(" %c",&c);
-   
-   
-   }while(c!=27);
+
+   }while(c!='0');
 }
